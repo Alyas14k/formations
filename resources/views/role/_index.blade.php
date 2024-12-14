@@ -191,11 +191,11 @@
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped" style="width:100%">
                                 <div class="card-header">                                    
-                                    <thead class="thead-table">
-                                        <tr>
-                                            <th>N°</th>
+                                    <thead>
+                                        <tr style="background-color:#0b9e44; color:white">
+                                            <th class="col-1">N°</th>
                                             <th>Libelle</th>
-                                            <th>Action</th>
+                                            <th class="col-1">Action</th>
                                         </tr>
                                     </thead>
                                     </div> 
@@ -211,13 +211,11 @@
                                             <td>{{$i}}</td>
                                             <td>{{$role->nom}}</td>
                                             <td class="text-center">
-                                                    <div class="btn-group">
-                                                    {{-- @can('role.update', Auth::user()) --}}
-                                                        <a href="{{ route('role.edit',$role) }}" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-edit"></i></a>
-                                                    {{-- @endcan --}}
-                                                    @can('role.delete',Auth::user())
-                                                        <a href="#modal-confirm-delete" onclick="delConfirm({{ $role->id }});" data-toggle="modal" title="Supprimer" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                                                    @endcan
+                                                    <div class="btn-group">                                                    
+                                                        <a href="{{ route('role.edit',$role) }}" data-toggle="tooltip" title="Edit" class="btn btn-outline-danger"><i class="fa fa-pen"></i></a>                                                 
+                                                    
+                                                        <!-- <a href="#modal-confirm-delete" onclick="delConfirm({{ $role->id }});" data-toggle="modal" title="Supprimer" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a> -->
+                                                    
                                                     </div>
                                             </td>
                                         </tr>

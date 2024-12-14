@@ -58,9 +58,12 @@ class PermissionController extends Controller
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit(Permission $permission)
+    public function edit($permission)
     {
         //
+       // dd($permission);
+       $permission=Permission::find($permission);
+       return view('permission.edit', compact('permission'));
     }
 
     /**
@@ -70,9 +73,19 @@ class PermissionController extends Controller
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permission $permission)
+    public function update(Request $request, $permission)
     {
         //
+        //dd($request->all());
+        $permission=Permission::find($permission);
+        if($permission){
+            $permission->update([
+                'name'=>$request->nom,
+                'for'=>$request->module
+            ]);
+        }
+        session()->flash('message', "Permission Modifiée Avec Succès !");
+        return redirect()->route('permissions.index');
     }
 
     /**

@@ -196,8 +196,7 @@
                                             <th>N°</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
-                                            <th>Email</th>
-                                            <th>Tel</th>
+                                            <th>Email</th>                                           
                                             <th>Rôle</th>                
                                             <th >Action</th>
                                         </tr>
@@ -215,9 +214,8 @@
                                             <td>{{$i}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->prenom}}</td>
+                                            <td>{{$user->email}}</td>                                    
                                             <td>{{$user->email}}</td>
-                                            <td>{{ $user->telephone}}</td>
-                                            <td>{{ $user->telephone}}</td>
 
                                             {{-- <td class="col-md-1">
                                                 <label class="switch switch-danger "><input type="checkbox" onclick="idstatus({{ $user->id }})"
@@ -229,7 +227,7 @@
                                             <td class="text-center">
                                                 
                                                     <div class="btn-group">
-                                                        <a href="{{ route('user.edit',$user) }}" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+                                                        <a href="{{ route('user.edit',$user->id) }}" data-toggle="tooltip" title="Edit" class="btn btn-outline-danger"><i class="fa fa-pen"></i></a>
                                                     </div>                                                
                                             </td>
                                         </tr>
@@ -265,29 +263,21 @@
                             </div>                      
                         </div>                
                 </div>
-                <div class="row g-4">                    
-                        <div class="col-md-6">                        
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Téléphone</label>
-                                <input type="text" name="telephone" class="form-control" id="" required>
-                            </div>                   
-                        </div>
+                <div class="row g-4">                      
                         <div class="col-md-6">                     
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" id="" required>
                             </div>               
-                        </div>                
-                </div>
-                <div class="row g-4">
+                        </div> 
                         <div class="col-md-6">                     
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Mot de Passe</label>
                                 <input type="password" name="password" class="form-control" id="" required>
                             </div>                      
-                        </div>
-                                                       
-                </div>                
+                        </div>               
+                </div>
+                                
                 <div class="row g-4">
                     <div class="col-md-6">
                         @foreach ($roles as $role)

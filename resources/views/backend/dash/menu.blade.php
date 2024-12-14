@@ -27,8 +27,8 @@
                             <a href="{{route('user.index')}}" id="link-user" class="dropdown-item {{ Request::routeIs('user.index') ? 'active' : '' }}">Utilisateurs</a>
                             <a href="{{route('role.index')}}" id="link-role" class="dropdown-item {{ Request::routeIs('role.index') ? 'active' : '' }}">Rôles</a>
                             <a href="{{route('permissions.index')}}" id="link-permission" class="dropdown-item {{ Request::routeIs('permissions.index') ? 'active' : '' }}">Permissions</a>
-                            <a href="{{route('parametre.index')}}" id="link-parametre" class="dropdown-item {{ Request::routeIs('parametre.index') ? 'active' : '' }}">Parametres</a>
-                            <a href="{{route('valeur.index')}}" id="link-valeur" class="dropdown-item {{ Request::routeIs('valeur.index') ? 'active' : '' }}">Valeurs</a>                            
+                            <!-- <a href="{{route('parametre.index')}}" id="link-parametre" class="dropdown-item {{ Request::routeIs('parametre.index') ? 'active' : '' }}">Parametres</a>
+                            <a href="{{route('valeur.index')}}" id="link-valeur" class="dropdown-item {{ Request::routeIs('valeur.index') ? 'active' : '' }}">Valeurs</a>                             -->
                         </div>
                     </div>
                 </div>

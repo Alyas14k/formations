@@ -14,6 +14,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        //$this->middleware('auth', ['except' => ['verifier_nom_commercial']]);
+        $this->middleware('auth');
+    }
     public function index(){
         $users= User::where('id', '!=', null)->orderBy('created_at', 'desc')->get();
         //$employes=Employe::where('id', '!=', null)->orderby('created_at','desc')->get();
@@ -48,13 +54,12 @@ class UserController extends Controller
            $user= User::create([
                 "name"=>$request['nom'],
                 "email"=>$request['email'],
-                'prenom'=> $request ['prenom'],                
-                'telephone'=> $request ['telephone'],
+                'prenom'=> $request ['prenom'],
                 //'id_employe' => $request['employe'],
                 'password' => bcrypt($request->password)
             ]);
             $user->roles()->sync($request->roles);
-            flash("Utilisateur ajouté avec succes !!!")->success();
+            session()->flash('message', "Utilisateur Créé Avec Succès !");
             return back();
         }
     }
@@ -76,9 +81,13 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($user)
     {
         //
+        //dd($user);
+        $user=User::find($user);
+        $roles= Role::all();
+        return view('user.edit', compact('user','roles'));
     }
 
     /**
@@ -88,9 +97,32 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $user)
     {
         //
+        $user=User::find($user);
+        
+        if($user){
+            $request->validate([
+                "nom"=>"required",
+                "email"=>"required|email"                           
+            ]);
+
+                $user->update([
+                    'name'=>$request->nom,
+                    'prenom'=>$request->prenom,
+                    'email'=>$request->email
+                ]);
+            
+            if(!empty($request['password'])){
+            $user->update([
+                'password' => bcrypt($request['password'])                
+            ]);
+            }
+        }
+        $user->roles()->sync($request->roles);
+        session()->flash('message', "Utilisateur Modifié Avec Succès !");
+            return redirect()->route('user.index');
     }
 
     /**

@@ -14,6 +14,11 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        //$this->middleware('auth', ['except' => ['verifier_nom_commercial']]);
+        $this->middleware('auth');
+    }
     public function index(){
         $roles=Role::orderBy('updated_at', 'desc')->get();
         $permissions=Permission::where('id', '!=', null)->orderBy('created_at', 'desc')->get();
@@ -74,9 +79,13 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($role)
     {
         //
+        $role=Role::find($role);
+        $permissions=Permission::where('id', '!=', null)->orderBy('created_at', 'desc')->get();
+
+        return view('role.edit', compact('role','permissions'));
     }
 
     /**
@@ -86,9 +95,19 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $role)
     {
         //
+        $role=Role::find($role);
+        if($role){
+            $role->update([
+                'nom'=>$request->nom
+            ]);
+            $role->permissions()->sync($request->permissions);
+        }
+
+        session()->flash('message', "Rôle Modifié Avec Succès !");
+        return back();
     }
 
     /**

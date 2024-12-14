@@ -47,6 +47,7 @@ Route::post('/inscrit/payer/store', [PaiementController::class, 'store'])->name(
 Route::get('/inscrit/recu/{id}', [PaiementController::class, 'recu'])->name('payer.recu');
 Route::get('/inscrit/edit/{id}', [InscritController::class, 'edit'])->name('inscrit.edit');
 Route::get('/formation/edit/{id}', [FormationController::class, 'edit'])->name('formation.edit');
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 
 
 // Les routes ressources

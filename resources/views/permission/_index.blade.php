@@ -2,40 +2,40 @@
 @section('css')
 
 <style>
-        .p-divider {
-        border-bottom: 3px solid var(--marron);
-    }
-        table {
-    width: 100%;
-    border-collapse: collapse;
-    }
+                .p-divider {
+                border-bottom: 3px solid var(--marron);
+            }
+                table {
+            width: 100%;
+            border-collapse: collapse;
+            }
 
-    td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    word-wrap: break-word;
-    white-space: normal;
-    }
+            td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+            white-space: normal;
+            }
 
-    td {
-    max-width: 150px; /* Ajuste cette valeur pour définir une largeur maximale pour chaque cellule */
-    }
+            td {
+            max-width: 150px; /* Ajuste cette valeur pour définir une largeur maximale pour chaque cellule */
+            }
 
-    th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    }
+            th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            }
 
-    tr:nth-child(even) {
-    background-color: #f9f9f9;
-    }
-    hr{
-    height:10px;
-    border-width:0;
-    color:#009636;
-    /* background-color:#009636 */
-  }
+            tr:nth-child(even) {
+            background-color: #f9f9f9;
+            }
+            hr{
+            height:10px;
+            border-width:0;
+            color:#009636;
+            /* background-color:#009636 */
+        }
 </style>
 <style>
         .field {
@@ -191,8 +191,8 @@
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped" style="width:100%">
                                 <div class="card-header">                                    
-                                    <thead class="thead-table">
-                                        <tr>
+                                    <thead>
+                                        <tr style="background-color:#0b9e44; color:white">
                                             <th>N°</th>
                                             <th>Libelle</th>
                                             <th>Action</th>
@@ -212,8 +212,8 @@
                                             <td>{{$permission->name}}</td>
                                             <td class="text-center">
                                                     <div class="btn-group">
-                                                        <a href="{{ route('permissions.edit', $permission) }}" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-edit"></i></a>
-                                                        <a href="#modal-confirm-delete" onclick="delConfirm({{ $permission->id }});" data-toggle="modal" title="Supprimer" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                                        <a href="{{ route('permissions.edit', $permission) }}" data-toggle="tooltip" title="Edit" class="btn btn-outline-danger"><i class="fa fa-pen"></i></a>
+                                                        <!-- <a href="#modal-confirm-delete" onclick="delConfirm({{ $permission->id }});" data-toggle="modal" title="Supprimer" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a> -->
                                                     </div>
                                             </td>
                                         </tr>
