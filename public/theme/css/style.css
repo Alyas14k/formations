@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e21;
+    color: #fff;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-card {
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .logo h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn {
+    background-color: #0f0f26;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .info-card {
+    margin-left: 20px;
+    text-align: center;
+  }
+  
+  .info-card img {
+    max-width: 300px;
+    border-radius: 10px;
+  }
+  
+  .info-card p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #fff;
+  }
+  header {
+    padding: 10px 0;
+    height: 50px;
+  }
+  .text{
+    color: white;
+  }
