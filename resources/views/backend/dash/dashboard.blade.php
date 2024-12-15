@@ -106,9 +106,20 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4 stat-box">
-                            <i class="fa fa-usd fa-3x text-danger"></i>
+                            <i class="fa fa-file-invoice-dollar fa-3x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Paiements</p>
+                                <h5 class="mb-0">{{$formateur}}</h5>
+                                <!-- <p class="mb-2">Materiel</p>
+                                <h5 class="mb-0">26</h5> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4 stat-box">
+                            <i class="fa fa fa-question fa-3x text-danger"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Demandes</p>
                                 <h5 class="mb-0">{{$formateur}}</h5>
                                 <!-- <p class="mb-2">Materiel</p>
                                 <h5 class="mb-0">26</h5> -->
@@ -120,12 +131,12 @@
 
     <div class="row g-4">
                 
-                    <div class="col-sm-12 col-xl-8">
+                    <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Inscrit Par Formation</h6>
-                            <table id="example" class="table table-striped">
+                            <table class="table table-striped">
                                 <thead>
-                                    <tr style="background-color:#0b9e44; color:white">
+                                    <tr class="table_color">
                                         <th class="col-1">N°</th>
                                         <th class="col-4">Formation</th>
                                         <th class="col-2">Payé</th>
@@ -153,10 +164,35 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-xl-4">
+                    <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Single Bar Chart</h6>
-                            <canvas id="bar-chart"></canvas>
+                            <h6 class="mb-4">Formateur Par Formation</h6>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="table_color">
+                                        <th class="col-1">N°</th>
+                                        <th class="col-4">Nom et Prénom</th>
+                                        <th class="col-2">Formation</th>
+                                        <th class="col-2">Prix</th>                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $i=0; 
+                                    @endphp
+                                    @foreach ($formateur_tabs as $tab)
+                                            @php
+                                            $i++;
+                                            @endphp
+                                    <tr>
+                                        <td>{{$i}}</td>
+                                        <td>{{$tab->formateur->nom}} {{$tab->formateur->prenom ?? 'N/A' }}</td>
+                                        <td>{{$tab->formation->titre ?? 'N/A' }}</td>
+                                        <td>{{$tab->formation->prix ?? 'N/A' }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!--<div class="col-sm-12 col-xl-6" style="display:none;">

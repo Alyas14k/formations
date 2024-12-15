@@ -14,7 +14,7 @@
 </div>                       
 <table id="example" class="table table-striped">
                                 <thead>
-                                <tr style="background-color:#0b9e44; color:white">
+                                <tr class="table_color">
                                     <th>N°</th>
                                     <th>Titre</th>
                                     <th>Description</th>
@@ -43,8 +43,9 @@
                                     <td>{{ $formation->date_fin}}</td>
                                     <td>{{ $formation->lieu}}</td>
                                     <td>{{ $formation->place}}</td>
-                                    <td><a href="#" class="btn btn-outline-success" title="Afficher les détais"> <i class="fa fa-eye"></i></a>
-                                    <a href="{{route('formation.edit', $formation->id)}}" class="btn btn-outline-warning"  title="Afficher les détais"> <i class="fa fa-pen"></i></a>
+                                    <td>
+                                        <!-- <a href="#" class="btn btn-outline-success" title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
+                                    <a href="{{route('formation.edit', $formation->id)}}" class="btn btn-outline-danger"  title="Modifier"> <i class="fa fa-pen"></i></a>
 
                                 </td>
                                                        
@@ -80,27 +81,27 @@
                 <div class="row g-4">                    
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Titre</label>
+                                <label for="exampleInputEmail1" class="form-label">Titre (<span class="text-danger">*</span>)</label>
                                 <input type="text" name="titre" class="form-control" value="{{ old('libelle') }}" id="" required>
                             </div>               
                         </div>
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Description</label>
-                                <textarea class="form-control" col="2" rows="2" name="description" placeholder="Saisir..." id="floatingTextarea"></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Description (<span class="text-danger">*</span>)</label>
+                                <textarea class="form-control" col="2" rows="2" name="description" placeholder="Saisir..." id="floatingTextarea" required></textarea>
                             </div>
                         </div>                        
                 </div>
                 <div class="row g-4">                    
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Date Début</label>
+                                <label for="exampleInputEmail1" class="form-label">Date Début (<span class="text-danger">*</span>)</label>
                                 <input type="date" name="debut" class="form-control"  id="" required>
                             </div>               
                         </div>
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Date Fin</label>
+                                <label for="exampleInputEmail1" class="form-label">Date Fin (<span class="text-danger">*</span>)</label>
                                 <input type="date" name="fin" class="form-control" id="" required>
                                 
                             </div>
@@ -109,13 +110,13 @@
                 <div class="row g-4">                    
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Frais de Participation</label>
+                                <label for="exampleInputEmail1" class="form-label">Frais de Participation (<span class="text-danger">*</span>)</label>
                                 <input type="number" name="prix" class="form-control"  id="" required>
                             </div>
                         </div>
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nombre de Place</label>
+                                <label for="exampleInputEmail1" class="form-label">Nombre de Place (<span class="text-danger">*</span>)</label>
                                 <input type="number" name="place" class="form-control" id="" required>                                
                             </div>
                         </div>                                               
@@ -129,7 +130,7 @@
                         </div> 
                         <div class="col-md-6">                        
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Formateur</label>
+                                <label for="exampleInputEmail1" class="form-label">Formateur (<span class="text-danger">*</span>)</label>
                                     <select  class="form-select mb-3" id="parent" name="formateur" required autofocus>
                                             <option></option>
                                             @foreach ($formateurs as $formateur)
@@ -137,6 +138,12 @@
                                             @endforeach                                            
                                     </select>
                                 
+                            </div>
+                        </div>
+                        <div class="col-md-6">                        
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Image (<span class="text-danger">*</span>)</label>
+                                <input type="file" name="image" class="form-control" accept="image/png, image/jpeg, image/jpg" id="" required>
                             </div>
                         </div>                        
                 </div>               

@@ -41,6 +41,18 @@ class FormationController extends Controller
     {
         //
         //dd($request->all());
+        if($request->hasFile('image'))
+                    {
+                        $file=$request->file('image');
+                        $annee=date("Y", strtotime(now()));                        
+                        $mois=date("M", strtotime(now()));
+                        $jour=date("D", strtotime(now()));
+                        $extension=$file->getClientOriginalExtension();
+                        $fileName= $jour.'-'.$mois.'-'.$annee.'.'.$extension;
+                        $emp='public/files/'.$annee;
+                        $url_file=$request->file('image')->storeAs($emp, $fileName);
+                }
+                
         $formations=Formation::create([
             'titre'=>$request->titre,
             'prix'=>$request->prix,
@@ -50,7 +62,8 @@ class FormationController extends Controller
             'date_debut'=>$request->debut,
             'date_fin'=>$request->fin,
             'description'=>$request->description,
-            'user'=>Auth::user()->id
+            'user'=>Auth::user()->id,
+            'url'=>$url_file
         ]);
         if($formations){
             $store=FormationFormateur::create([
@@ -58,7 +71,8 @@ class FormationController extends Controller
                 'formateur_id'=>$request->formateur
             ]);
         }
-        return back()->with('success', 'Formation Enregistrée !');
+        session()->flash('message', "Formation ajoutée avec succès !");
+        return back();
     }
 
     /**
@@ -91,6 +105,20 @@ class FormationController extends Controller
         //dd($request->all());
         $formation=Formation::find($formation);
         $formateur=FormationFormateur::where('formation_id', $formation->id)->first();
+        if($request->hasFile('image'))
+                    {
+                        $file=$request->file('image');
+                        $annee=date("Y", strtotime(now()));
+                        $mois=date("M", strtotime(now()));
+                        $jour=date("D", strtotime(now()));
+                        $extension=$file->getClientOriginalExtension();
+                        $fileName= $jour.'-'.$mois.'-'.$annee.'_'.$formation->id.'.'.$extension;
+                        $emp='public/files/'.$annee;
+                        $url_file=$request->file('image')->storeAs($emp, $fileName);
+                }
+                else{
+                 $url_file=$formation->url;   
+                }
         if($formation){
             $formation->update([
                 'titre'=>$request->titre,
@@ -101,7 +129,8 @@ class FormationController extends Controller
                 'date_debut'=>$request->debut,
                 'date_fin'=>$request->fin,
                 'description'=>$request->description,
-                'modify_by'=>Auth::user()->id
+                'modify_by'=>Auth::user()->id,
+                'url'=>$url_file
             ]);
             
             if($formateur->formateur_id != $request->formateur){

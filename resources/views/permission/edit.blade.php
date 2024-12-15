@@ -30,7 +30,7 @@
                     </div>                             
                     <br><br>       
                     <center>
-                        <input type="submit" class="btn btn-outline-success me-2 save" value="Enregistrer">
+                        <input type="submit" class="btn btn-success me-2 save" value="Enregistrer">
                         <!-- <button type="submit" style="margin-left:10px;" id="declaration_edit"  data-toggle="modal" class="btn btn-outline-success me-2 save" > <i class="fas fa-save"></i> Enregistrer </button> -->
                     <button type="button" class="btn btn-outline-danger me-2 cancel" onclick="history.back()"><i class="fas fa fa-ban"></i> Annuler</button>
                     <!-- <a  style="margin-left:10px;" id="declaration_edit" data-toggle="modal" class="btn btn-outline-danger me-2 cancel" > <i class="fas fa fa-ban"></i> Annuler</a> -->

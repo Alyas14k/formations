@@ -9,14 +9,14 @@
        
                 <div>
                         <!-- <a href="{{route('paiement.create')}}" class="btn btn-outline-success me-2" data-bs-whatever=""> <i class="fa fa-plus"></i> Paiement</a> -->
-                        <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#payer" data-bs-whatever=""> <i class="fa fa-plus"></i> Inscrit</button>                        
+                        <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#payer" data-bs-whatever=""> <i class="fa fa-plus"></i> Paiement</button>                        
 
                 </div>
                 
 </div>                       
 <table id="example" class="table table-striped">
                                 <thead>
-                                <tr style="background-color:#0b9e44; color:white">
+                                <tr class="table_color">
                                     <th>N°</th>
                                     <th>Statut</th>
                                     <th class="col-2">Code</th>
@@ -25,7 +25,7 @@
                                     <th class="col-3">Nom & Prénom</th>
                                     <th>Formation</th>                                                                  
                                     <th>Date</th>
-                                    <th class="col-4">Action</th>                   
+                                    <th class="col-2">Action</th>                   
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -50,8 +50,8 @@
                                     <td>{{$paiement->created_at}}</td> 
                                     <td>                                                                                          
                              
-                                        <a href="#" class="btn btn-outline-success" title="Afficher les détais"> <i class="fa fa-eye"></i></a>
-                                        <a href="#" class="btn btn-outline-warning" title="Afficher les détais"> <i class="fa fa-pen"></i></a>
+                                        <!-- <a href="#" class="btn btn-outline-success" title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
+                                        <a href="#" class="btn btn-outline-danger" title="Afficher les détais"> <i class="fa fa-pen"></i></a>
                                         <a href="{{route('payer.recu', $paiement->id)}}" class="btn btn-outline-danger" title="Afficher les détais"> Reçu</a>
                                         
                                     </td>                    
@@ -68,7 +68,7 @@
                                     <th class="col-3">Nom & Prénom</th>
                                     <th>Formation</th>                                                                  
                                     <th>Date</th>
-                                    <th class="col-4">Action</th>   
+                                    <th class="col-2">Action</th>   
                                 </tr>
                                 </tfoot>
                             </table>

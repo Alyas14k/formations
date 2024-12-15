@@ -14,13 +14,13 @@
 </div>                       
 <table id="example" class="table table-striped">
                                 <thead>
-                                <tr style="background-color:#0b9e44; color:white">
+                                <tr class="table_color">
                                     <th>N°</th>
                                     <th>Statut</th>
-                                    <th class="col-2">Nom & Prénom</th>
-                                    <th>Formation</th>
+                                    <th class="col-3">Nom & Prénom</th>
+                                    <th class="col-3">Formation</th>
                                     <th>Type</th>
-                                    <th>Mobile</th>
+                                    <th class="col-2">Mobile</th>
                                     <th class="col-2">Action</th>                   
                                 </tr>
                                 </thead>
@@ -37,7 +37,7 @@
                                     <td>@if($inscrit->statut==0) Non Payé @elseif($inscrit->statut==1) Tranche @else Payé @endif</td>
                                     <td>{{$inscrit->nom}} {{ $inscrit->prenom}}</td> 
                                     <td>{{getformation($inscrit->formation_id)['titre']}}</td>
-                                    <td>@if($inscrit->type==0) Gestionnaire @else Candidat @endif</td>
+                                    <td>@if($inscrit->type==0) Admin @else Candidat @endif</td>
                                     <td>{{ $inscrit->mobile_1}} - {{ $inscrit->mobile_2}}</td>
                                     <td>
                                         @if($inscrit->statut==0 || $inscrit->statut==1 )   
@@ -55,8 +55,8 @@
                                         @else
                                         <a href="{{route('payer.recu', $inscrit->id)}}" class="btn btn-outline-success" title="Afficher les détais">Reçu</a>
                                         @endif
-                                        <a href="" class="btn btn-outline-success"  title="Afficher les détais"> <i class="fa fa-eye"></i></a>
-                                        <a href="{{route('inscrit.edit', $inscrit->id)}}" class="btn btn-outline-warning"  title="Afficher les détais"> <i class="fa fa-pen"></i></a>
+                                        <!-- <a href="" class="btn btn-outline-success"  title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
+                                        <a href="{{route('inscrit.edit', $inscrit->id)}}" class="btn btn-outline-danger"  title="Afficher les détais"> <i class="fa fa-pen"></i></a>
 
 
                                     </td>                    

@@ -191,8 +191,8 @@
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped" style="width:100%">
                                 <div class="card-header">                                    
-                                    <thead class="thead-table">
-                                        <tr>
+                                    <thead>
+                                        <tr class="table_color">
                                             <th>N°</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>

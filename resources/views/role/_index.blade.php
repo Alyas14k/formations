@@ -192,7 +192,7 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                 <div class="card-header">                                    
                                     <thead>
-                                        <tr style="background-color:#0b9e44; color:white">
+                                        <tr class="table_color">
                                             <th class="col-1">N°</th>
                                             <th>Libelle</th>
                                             <th class="col-1">Action</th>

@@ -71,11 +71,25 @@
                                             </select>
                                         
                                     </div>
-                                </div>                        
+                                </div>                                             
+                        </div>
+                        <div class="row g-4">                                
+                                <div class="col-md-6">                        
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                                        <img src="{{ Storage::url($formation->url) }}" width="100%" height="100%" alt="">                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">                        
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                                        <input type="file" name="image" accept="image/png, image/jpeg, image/jpg" class="form-control" id="">
+                                    </div>
+                                </div>                
                         </div>          
                     <br><br>       
                     <center>
-                        <input type="submit" class="btn btn-outline-success me-2 save" value="Enregistrer">
+                        <input type="submit" class="btn btn-success save" value="Enregistrer">
                         <!-- <button type="submit" style="margin-left:10px;" id="declaration_edit"  data-toggle="modal" class="btn btn-outline-success me-2 save" > <i class="fas fa-save"></i> Enregistrer </button> -->
                     <button type="button" class="btn btn-outline-danger me-2 cancel" onclick="history.back()"><i class="fas fa fa-ban"></i> Annuler</button>
                     <!-- <a  style="margin-left:10px;" id="declaration_edit" data-toggle="modal" class="btn btn-outline-danger me-2 cancel" > <i class="fas fa fa-ban"></i> Annuler</a> -->

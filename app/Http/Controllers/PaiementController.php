@@ -208,12 +208,12 @@ class PaiementController extends Controller
             ->orderBy('created_at', 'asc')
             //->skip(1)
             ->get();
-            $total=$paiements->sum('montant');
+            //$total=$paiements->sum('montant');
             
         }
         //dd($last);
 
-        $pdf = Pdf::loadView('paiement.recu', compact('inscrit','last','paiements','total'));
+        $pdf = Pdf::loadView('paiement.recu', compact('inscrit','last','paiements'));
         //dd($paiements);
         return  $pdf->download('sereeni-2024 reçu.pdf');  
 

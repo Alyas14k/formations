@@ -14,7 +14,7 @@
 </div>                       
 <table id="example" class="table table-striped">
                                 <thead>
-                                <tr style="background-color:#0b9e44; color:white">
+                                <tr class="table_color">
                                     <th>N°</th>
                                     <th>ID</th>
                                     <th>Nom</th>

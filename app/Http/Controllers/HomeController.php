@@ -20,8 +20,8 @@ class HomeController extends Controller
     {
         //
         $nbr_paye=Inscrits::where('statut', 2)->get();
-        $nbrnon_paye=Inscrits::where('statut', 0)->get();
-        $nbr_tranch=Inscrits::where('statut', 1)->get();
+        $nbrnon_paye=Inscrits::where('statut', 0)->orWhere('statut', 1)->get();
+        $nbr_tranch=Paiement::where('reste', '!=', 0)->get();
         $nbr_formation=Formation::where('id', '!=', null)->get();
         $nbr_formateur=Formateur::where('id', '!=', null)->get();
         
@@ -35,8 +35,10 @@ class HomeController extends Controller
                 ->orWhere('statut', 1); // Filtre : Non payé
             },
         ])->get();
-
-           // dd($formations);
+        
+        $formateur_tabs = FormationFormateur::with(['formation:id,titre,prix', 'formateur:id,nom,prenom'])
+        ->get();
+          // dd($formateur_tabs);
         $paye=count($nbr_paye);
         $non_paye=count($nbrnon_paye);
         $tranch=count($nbr_tranch);
@@ -49,7 +51,8 @@ class HomeController extends Controller
             'tranch'=>$tranch,
             'formation'=>$formation,
             'formateur'=>$formateur,
-            'formation_tabs'=>$formation_tabs
+            'formation_tabs'=>$formation_tabs,
+            'formateur_tabs'=>$formateur_tabs
         ];
         //return redirect()->route('login');
         return view('backend.dash.dashboard', $data);
