@@ -135,7 +135,7 @@
                                             <option></option>
                                             @foreach ($formateurs as $formateur)
                                             <option value="{{$formateur->id}}">{{$formateur->nom}} - {{$formateur->prenom}}</option>
-                                            @endforeach                                            
+                                            @endforeach           
                                     </select>
                                 
                             </div>
