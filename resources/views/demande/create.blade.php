@@ -35,8 +35,8 @@
   </head>
   <body>
     <div class="form-container mt-5">
-        <h1 class="form-title">Formulaire d'inscription</h1>
-        <form method="POST" action="{{ route('inscrits.store') }}">
+        <h1 class="form-title">Formulaire de demande</h1>
+        <form method="POST" action="{{ route('demande.store') }}">
             @csrf
             <input type="hidden" name="formation_id" value="{{ $formation_id }}">
 
@@ -85,32 +85,17 @@
                 @error('mobile_2') <div class="text-danger mt-1">{{ $message }}</div> @enderror
             </div>
 
+            <!-- Champ libelle -->
+            <div class="mb-3">
+                <label for="libelle" class="form-label">Libelle de la demande :</label>
+                <input type="text" id="libelle" name="libelle" class="form-control" value="{{ old('libelle') }}" required placeholder="Entrez votre libelle">
+                @error('libelle') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
             <!-- Champ Objectif -->
             <div class="mb-3">
                 <label for="objectif" class="form-label">Objectif :</label>
                 <textarea id="objectif" name="objectif" class="form-control" placeholder="Décrivez votre objectif ici">{{ old('objectif') }}</textarea>
                 @error('objectif') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div>
-
-            <!-- Champ Statut -->
-            <!-- <div class="mb-3">
-                <label for="statut" class="form-label">Statut :</label>
-                <select id="statut" name="statut" class="form-select" required>
-                    <option value="0" {{ old('statut') == '0' ? 'selected' : '' }}>Non payé</option>
-                    <option value="1" {{ old('statut') == '1' ? 'selected' : '' }}>Payé par tranche</option>
-                    <option value="2" {{ old('statut') == '2' ? 'selected' : '' }}>Tout payé</option>
-                </select>
-                @error('statut') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div> -->
-
-            <!-- Champ Type -->
-            <div class="mb-3">
-                <label for="type" class="form-label">Type :</label>
-                <select id="type" name="type" class="form-select" required>
-                    <option value="0" {{ old('type') == '0' ? 'selected' : '' }}>Présentiel</option>
-                    <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>En ligne</option>
-                </select>
-                @error('type') <div class="text-danger mt-1">{{ $message }}</div> @enderror
             </div>
 
             <!-- Bouton de soumission -->

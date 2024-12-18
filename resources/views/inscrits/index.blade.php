@@ -17,10 +17,11 @@
                                 <tr class="table_color">
                                     <th>N°</th>
                                     <th>Statut</th>
-                                    <th class="col-3">Nom & Prénom</th>
-                                    <th class="col-3">Formation</th>
+                                    <th class="col-2">Nom & Prénom</th>
+                                    <th class="col-2">Formation</th>
                                     <th>Type</th>
                                     <th class="col-2">Mobile</th>
+                                    <th class="col-2">Date</th>
                                     <th class="col-2">Action</th>                   
                                 </tr>
                                 </thead>
@@ -39,6 +40,7 @@
                                     <td>{{getformation($inscrit->formation_id)['titre']}}</td>
                                     <td>@if($inscrit->type==0) Admin @else Candidat @endif</td>
                                     <td>{{ $inscrit->mobile_1}} - {{ $inscrit->mobile_2}}</td>
+                                    <td>{{ date("d-m-Y à H:i", strtotime($inscrit->created_at)) }}</td>
                                     <td>
                                         @if($inscrit->statut==0 || $inscrit->statut==1 )   
                                         
@@ -57,8 +59,6 @@
                                         @endif
                                         <!-- <a href="" class="btn btn-outline-success"  title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
                                         <a href="{{route('inscrit.edit', $inscrit->id)}}" class="btn btn-outline-danger"  title="Afficher les détais"> <i class="fa fa-pen"></i></a>
-
-
                                     </td>                    
                                 </tr>
                                 @endforeach
@@ -71,6 +71,7 @@
                                     <th>Formation</th>
                                     <th>Type</th>
                                     <th>Mobile</th>
+                                    <th class="col-2">Date</th>
                                     <th class="col-2">Action</th> 
                                 </tr>
                                 </tfoot>

@@ -11,6 +11,7 @@ use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\InscritController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\DemandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,7 @@ use App\Http\Controllers\RoleController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 
 Route::middleware([
@@ -62,6 +61,7 @@ Route::resource("valeur",ValeurController::class);
 Route::resource("formation",FormationController::class);
 Route::resource("formateur",FormateurController::class);
 Route::resource("inscrit",InscritController::class);
+Route::resource("demande",DemandeController::class);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
@@ -70,5 +70,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/inscription/create/{formation_id}', [InscritController::class, 'create'])->name('inscrits.create');
     Route::post('/inscription/store', [InscritController::class, 'store'])->name('inscrits.store');
 
+    //Route pour demande
+    Route::prefix('demande')->group(function () {
+        Route::get('/demande/create', [DemandeController::class, 'create'])->name('demande.create');
+        Route::post('/demande/store', [DemandeController::class, 'store'])->name('demande.store');
+    });
 });
 

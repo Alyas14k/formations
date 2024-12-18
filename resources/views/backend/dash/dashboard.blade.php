@@ -109,7 +109,7 @@
                             <i class="fa fa-file-invoice-dollar fa-3x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Paiements</p>
-                                <h5 class="mb-0">{{$formateur}}</h5>
+                                <h5 class="mb-0">{{$paiement}}</h5>
                                 <!-- <p class="mb-2">Materiel</p>
                                 <h5 class="mb-0">26</h5> -->
                             </div>
@@ -120,7 +120,7 @@
                             <i class="fa fa fa-question fa-3x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Demandes</p>
-                                <h5 class="mb-0">{{$formateur}}</h5>
+                                <h5 class="mb-0">{{$demande}}</h5>
                                 <!-- <p class="mb-2">Materiel</p>
                                 <h5 class="mb-0">26</h5> -->
                             </div>

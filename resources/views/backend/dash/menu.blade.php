@@ -16,9 +16,10 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route('dashboard')}}" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('inscrit.index')}}" class="nav-item nav-link {{ Request::routeIs('inscrit.index') ? 'active' : '' }}"><i class="fas fa-user-plus me-2"></i>Inscrits</a>
-                    <a href="{{route('formation.index')}}" class="nav-item nav-link {{ Request::routeIs('formation.index') ? 'active' : '' }}"><i class="fas fa-graduation-cap me-2"></i>Formation</a>
-                    <a href="{{route('formateur.index')}}" class="nav-item nav-link {{ Request::routeIs('formateur.index') ? 'active' : '' }}"><i class="fas fa-users me-2"></i>Formateur</a>
-                    <a href="{{route('paiement.index')}}" class="nav-item nav-link {{ Request::routeIs('paiement.index') ? 'active' : '' }}"><i class="fas fa-file-invoice-dollar me-2"></i>Paiement</a>
+                    <a href="{{route('demande.index')}}" class="nav-item nav-link {{ Request::routeIs('demande.index') ? 'active' : '' }}"><i class="fas fa-user-plus me-2"></i>Demandes</a>
+                    <a href="{{route('formation.index')}}" class="nav-item nav-link {{ Request::routeIs('formation.index') ? 'active' : '' }}"><i class="fas fa-graduation-cap me-2"></i>Formations</a>
+                    <a href="{{route('formateur.index')}}" class="nav-item nav-link {{ Request::routeIs('formateur.index') ? 'active' : '' }}"><i class="fas fa-users me-2"></i>Formateurs</a>
+                    <a href="{{route('paiement.index')}}" class="nav-item nav-link {{ Request::routeIs('paiement.index') ? 'active' : '' }}"><i class="fas fa-file-invoice-dollar me-2"></i>Paiements</a>
                     <!-- <a href="" class="nav-item nav-link {{ Request::routeIs('requete.index') ? 'active' : '' }}"><i class="fas fa-user-tie me-2"></i>Requetes</a> -->
                     <!-- <a href="#" class="nav-item nav-link {{ Request::routeIs('employe.index') ? 'active' : '' }}"><i class="fas fa-user-tie me-2"></i>Employe</a> -->
                     <div class="nav-item dropdown admin" id="menu-admin">

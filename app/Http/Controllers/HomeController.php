@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formation;
 use App\Models\Formateur;
+use App\Models\Demande;
 use App\Models\Inscrits;
 use App\Models\Paiement;
 use App\Models\FormationFormateur;
@@ -13,8 +14,8 @@ class HomeController extends Controller
     //
     public function __construct()
     {
-        //$this->middleware('auth', ['except' => ['verifier_nom_commercial']]);
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['index']]);
+       // $this->middleware('auth');
     }
     public function admin()
     {
@@ -24,6 +25,9 @@ class HomeController extends Controller
         $nbr_tranch=Paiement::where('reste', '!=', 0)->get();
         $nbr_formation=Formation::where('id', '!=', null)->get();
         $nbr_formateur=Formateur::where('id', '!=', null)->get();
+        $nbr_demande=Demande::all();
+        $nbr_paiement=Paiement::all();
+
         
         $formation_tabs = Formation::withCount([
             'inscrits', // Total des inscrits
@@ -44,6 +48,8 @@ class HomeController extends Controller
         $tranch=count($nbr_tranch);
         $formation=count($nbr_formation);
         $formateur=count($nbr_formateur);
+        $demande=count($nbr_demande);
+        $paiement=count($nbr_paiement);
 
         $data=[
             'paye'=>$paye,
@@ -52,9 +58,18 @@ class HomeController extends Controller
             'formation'=>$formation,
             'formateur'=>$formateur,
             'formation_tabs'=>$formation_tabs,
-            'formateur_tabs'=>$formateur_tabs
+            'formateur_tabs'=>$formateur_tabs,
+            'paiement'=>$paiement,
+            'demande'=>$demande
         ];
         //return redirect()->route('login');
         return view('backend.dash.dashboard', $data);
+    }
+
+    public function index(){
+        $formations=Formation::where('id','!=', null)
+        ->orderBy('created_at', 'desc')->get();
+
+        return view('index' ,compact('formations'));
     }
 }

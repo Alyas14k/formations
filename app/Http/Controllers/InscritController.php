@@ -44,24 +44,41 @@ class InscritController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
-            'sexe' => 'required|integer|in:0,1',
-            'email' => 'nullable|email|max:255',
-            'mobile_1' => 'required|string|max:15',
-            'mobile_2' => 'nullable|string|max:15',
-            'objectif' => 'nullable|string|max:1000',
-            'statut' => 'required|integer|in:0,1,2',
-            'type' => 'required|integer|in:0,1',
+        //dd($request->all());
+        // $validated = $request->validate([
+        //     'nom' => 'required|string|max:255',
+        //     'prenom' => 'required|string|max:255',
+        //     'sexe' => 'required|integer|in:0,1',
+        //     'email' => 'nullable|email|max:255',
+        //     'mobile_1' => 'required|string|max:15',
+        //     'mobile_2' => 'nullable|string|max:15',
+        //     'objectif' => 'nullable|string|max:1000',
+        //     'statut' => 0,
+        //     'type' => 'required|integer|in:0,1',
+        //     'type_formation' => 'required|integer|in:0,1'
+        // ]);
+
+        // $validated['formation_id'] = $request->formation_id;
+        // //$validated['user'] = auth()->id() ?? null; // Associer l'utilisateur connecté
+
+        // Inscrits::create($validated); // Enregistrer les données dans la base
+
+        $inscrits=Inscrits::create([
+            'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'sexe'=>$request->sexe,
+            'formation_id'=>$request->formation_id,
+            'objectif'=>$request->objectif,
+            'email'=>$request->email,
+            'mobile_1'=>$request->mobile_1,
+            'mobile_2'=>$request->mobile_2,
+            'type'=>1, // Pour admin Enregistrement
+            'type_formation'=>$request->type,
+            'statut'=>0
         ]);
+        session()->flash('message', "Candidature Envoyée avec succès, Veuillez procéder au Paiement à l'agence !");
 
-        $validated['formation_id'] = $request->formation_id;
-        $validated['user'] = auth()->id() ?? null; // Associer l'utilisateur connecté
-
-        Inscrits::create($validated); // Enregistrer les données dans la base
-
-        return redirect()->route('inscrits.create')->with('success', 'Inscription réussie. Merci !');
+        return redirect()->route('index');
     }
 
     /**
