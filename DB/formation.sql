@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 15 déc. 2024 à 14:07
+-- Généré le : dim. 22 déc. 2024 à 12:05
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -20,6 +20,37 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `formation`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `demandes`
+--
+
+DROP TABLE IF EXISTS `demandes`;
+CREATE TABLE IF NOT EXISTS `demandes` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `prenom` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `mobile_1` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `mobile_2` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `sexe` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `libelle` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `objectif` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Déchargement des données de la table `demandes`
+--
+
+INSERT INTO `demandes` (`id`, `nom`, `prenom`, `email`, `mobile_1`, `mobile_2`, `sexe`, `libelle`, `objectif`, `created_at`, `updated_at`) VALUES
+(1, 'COMPAORE', 'Amidou', 'amidou@gmail.com', '73245632', NULL, '0', 'Formation en Culture Hors Sol', 'jkjnk', '2024-12-18 22:09:04', '2024-12-18 22:09:04'),
+(2, 'SONDO', 'Micheal', 'sondo@gmail.com', '77678899', NULL, '0', 'Test demande formation', 'ouiytr(e\"\'z(drtfygu', '2024-12-18 22:13:25', '2024-12-18 22:13:25'),
+(3, 'OUEDRAOGO', 'Aicha', 'elyse@gmail.com', '76543561', NULL, '1', 'Essai de demande', 'IYUTREZSDTCFVGBH', '2024-12-18 22:27:01', '2024-12-18 22:27:01');
 
 -- --------------------------------------------------------
 
@@ -92,21 +123,22 @@ CREATE TABLE IF NOT EXISTS `formations` (
   `modify_by` int DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `formations`
 --
 
 INSERT INTO `formations` (`id`, `titre`, `prix`, `date_debut`, `date_fin`, `place`, `lieu`, `objectif`, `description`, `user`, `created_at`, `updated_at`, `modify_by`, `url`) VALUES
-(1, 'SQL SERVER', 40000, '2024-12-10', '2024-12-14', 45, 'OUAGA', NULL, 'Desc', 1, '2024-12-09 22:39:32', '2024-12-09 22:39:32', NULL, NULL),
-(2, 'INFORMATIQUE', 560000, '2024-12-12', '2024-12-20', 34, 'BOBO', NULL, 'Test desc', 1, '2024-12-10 22:14:51', '2024-12-10 22:14:51', NULL, NULL),
-(3, 'ADMINISTRATION LINUX', 350000, '2024-12-11', '2024-12-26', 30, 'KOUDOUGOU', NULL, 'Test Desc', 1, '2024-12-10 22:15:42', '2024-12-10 22:15:42', NULL, NULL),
-(4, 'DEVELOPPEMENT MOBILE', 70000, '2025-01-06', '2025-01-11', 10, 'OUAGA', NULL, 'Tes Description', 1, '2024-12-10 22:17:02', '2024-12-10 22:17:02', NULL, NULL),
-(5, 'Code JAVA', 140000, '2024-12-16', '2024-12-20', 14, 'AMPO OUAGA', NULL, 'Test', 2, '2024-12-11 20:53:35', '2024-12-11 20:53:35', NULL, NULL),
-(6, 'TESTE', 90000, '2024-12-23', '2024-12-28', 10, 'BANG POORE', NULL, 'BARRO MODIF TEST', 2, '2024-12-14 09:55:30', '2024-12-15 11:44:23', 1, 'public/files/2024/2024_6.png'),
-(7, 'BARRO FORMATION', 100000, '2024-12-23', '2024-12-28', 10, 'UNIVERSITE AUBE NOUVELLE', NULL, 'TEST', 1, '2024-12-15 12:21:06', '2024-12-15 12:21:06', NULL, 'public/files/2024/Sun-Dec-2024.png'),
-(8, 'ESSAI', 34000, '2024-12-09', '2024-12-07', 23, 'UJKZ', NULL, 'ENCORE', 1, '2024-12-15 12:22:24', '2024-12-15 12:24:04', 1, 'public/files/2024/Sun-Dec-2024_8.png');
+(1, 'SQL SERVER', 40000, '2024-12-10', '2024-12-14', 45, 'OUAGA', NULL, 'Desc', 1, '2024-12-09 22:39:32', '2024-12-22 12:02:24', 1, 'public/files/2024/Sun-Dec-2024_1.jpg'),
+(2, 'INFORMATIQUE', 560000, '2024-12-12', '2024-12-20', 34, 'BOBO', NULL, 'Test desc', 1, '2024-12-10 22:14:51', '2024-12-22 12:02:04', 1, 'public/files/2024/Sun-Dec-2024_2.jpg'),
+(3, 'ADMINISTRATION LINUX', 350000, '2024-12-11', '2024-12-26', 30, 'KOUDOUGOU', NULL, 'Test Desc', 1, '2024-12-10 22:15:42', '2024-12-22 12:00:34', 1, 'public/files/2024/Sun-Dec-2024_3.jpg'),
+(4, 'DEVELOPPEMENT MOBILE', 70000, '2025-01-06', '2025-01-11', 10, 'OUAGA', NULL, 'Tes Description', 1, '2024-12-10 22:17:02', '2024-12-22 12:00:19', 1, 'public/files/2024/Sun-Dec-2024_4.jpg'),
+(5, 'Code JAVA', 140000, '2024-12-16', '2024-12-20', 14, 'AMPO OUAGA', NULL, 'Test', 2, '2024-12-11 20:53:35', '2024-12-22 12:00:03', 1, 'public/files/2024/Sun-Dec-2024_5.jpg'),
+(6, 'TESTE', 90000, '2024-12-23', '2024-12-28', 10, 'BANG POORE', NULL, 'BARRO MODIF TEST', 2, '2024-12-14 09:55:30', '2024-12-22 11:59:33', 1, 'public/files/2024/Sun-Dec-2024_6.jpg'),
+(7, 'BARRO FORMATION', 100000, '2024-12-23', '2024-12-28', 10, 'UNIVERSITE AUBE NOUVELLE', NULL, 'TEST', 1, '2024-12-15 12:21:06', '2024-12-22 11:59:17', 1, 'public/files/2024/Sun-Dec-2024_7.jpg'),
+(8, 'ESSAI', 34000, '2024-12-09', '2024-12-07', 23, 'UJKZ', NULL, 'ENCORE', 1, '2024-12-15 12:22:24', '2024-12-22 11:59:01', 1, 'public/files/2024/Sun-Dec-2024_8.jpg'),
+(9, 'ADMINI DB', 500000, '2024-12-23', '2024-12-27', 10, 'OUAGA', NULL, 'TGJ', 8, '2024-12-15 19:29:02', '2024-12-22 11:58:38', 1, 'public/files/2024/Sun-Dec-2024_9.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `formation_formateurs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `formation_formateurs`
@@ -136,7 +168,8 @@ INSERT INTO `formation_formateurs` (`id`, `formation_id`, `formateur_id`, `creat
 (5, 5, 3, '2024-12-11 20:53:35', '2024-12-11 20:53:35'),
 (6, 6, 3, '2024-12-14 09:55:30', '2024-12-14 10:37:45'),
 (7, 7, 1, '2024-12-15 12:21:06', '2024-12-15 12:21:06'),
-(8, 8, 2, '2024-12-15 12:22:24', '2024-12-15 12:22:24');
+(8, 8, 2, '2024-12-15 12:22:24', '2024-12-15 12:22:24'),
+(9, 9, 1, '2024-12-15 19:29:02', '2024-12-15 19:29:36');
 
 -- --------------------------------------------------------
 
@@ -163,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `inscrits` (
   `type_formation` int DEFAULT NULL,
   `modify_by` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `inscrits`
@@ -172,8 +205,13 @@ CREATE TABLE IF NOT EXISTS `inscrits` (
 INSERT INTO `inscrits` (`id`, `nom`, `prenom`, `sexe`, `email`, `mobile_1`, `mobile_2`, `formation_id`, `objectif`, `statut`, `type`, `user`, `created_at`, `updated_at`, `type_formation`, `modify_by`) VALUES
 (1, 'BARRO', 'IB', 0, 'barro.rahim@gmail.com', '12345678', NULL, 4, 'Test', 1, 0, 1, '2024-12-10 23:00:14', '2024-12-10 23:00:14', 0, NULL),
 (2, 'OUEDRAOGO', 'ALI U-AUBEN MSI', 0, 'ibrahim.barro@me.bf', '7656789', NULL, 1, NULL, 2, 0, 1, '2024-12-11 20:10:25', '2024-12-13 22:34:57', 1, 2),
-(3, 'TONDE', 'ADAMA', 0, 'adama@gmail.com', '73245632', NULL, 3, NULL, 1, 0, 2, '2024-12-11 20:26:38', '2024-12-13 22:37:18', 0, 2),
-(4, 'PILABRE', 'OUMOUL KOULSOUM', 1, 'pilabre@gmail.com', '77678899', '9876578', 1, 'HJGHJHJKJKJKK', 2, 0, 2, '2024-12-14 14:33:26', '2024-12-15 10:10:48', 0, NULL);
+(3, 'TONDE', 'ADAMA', 0, 'adama@gmail.com', '73245632', NULL, 3, NULL, 2, 0, 2, '2024-12-11 20:26:38', '2024-12-15 19:26:26', 0, 2),
+(4, 'Test Modif', 'OUMOUL KOULSOUM', 1, 'pilabre@gmail.com', '77678899', '76545666', 3, NULL, 2, 0, 2, '2024-12-14 14:33:26', '2024-12-15 19:21:51', 0, 8),
+(5, 'TONDE', 'ALI', 0, 'adama@gmail.com', '7656789', '76545666', 6, 'Bien comprendre la formation', 0, 0, 1, '2024-12-18 21:30:58', '2024-12-18 21:30:58', NULL, NULL),
+(6, 'OUEDRAOGO', 'Isaac', 0, 'isa@gmail.com', '73245632', NULL, 7, 'kll', 0, 0, NULL, '2024-12-18 21:58:32', '2024-12-18 21:58:32', 0, NULL),
+(7, 'OUEDRAOGO', 'Abdoul Karim', 0, 'karim@gmail.com', '87656789', NULL, 8, 'JIJN', 0, 0, NULL, '2024-12-18 22:00:06', '2024-12-18 22:00:06', 0, NULL),
+(8, 'KABORE', 'Kiswensida Jean Mark', 0, 'marc@gmail.com', '87654356', NULL, 5, 'JHI', 0, 1, NULL, '2024-12-18 22:03:20', '2024-12-18 22:03:20', 0, NULL),
+(9, 'KABORE', 'Issouf', 0, 'issouf@gmail.com', '76543561', NULL, 2, 'JKJKJK', 0, 1, NULL, '2024-12-18 22:04:33', '2024-12-18 22:04:33', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -187,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `migrations`
@@ -213,7 +251,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2024_12_13_224759_add_column_to_inscrits_table', 7),
 (21, '2024_12_13_234642_add_column_to_formations_table', 8),
 (22, '2024_12_14_155947_add_column_to_users_table', 9),
-(23, '2024_12_15_122537_add_column_to_fomations_table', 10);
+(23, '2024_12_15_122537_add_column_to_fomations_table', 10),
+(24, '2024_12_15_112208_create_demandes_table', 11);
 
 -- --------------------------------------------------------
 
@@ -235,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `paiements` (
   `tranche` int DEFAULT NULL,
   `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `paiements`
@@ -251,9 +290,11 @@ INSERT INTO `paiements` (`id`, `formation_id`, `inscrit_id`, `montant`, `reste`,
 (12, '1', '2', 495000, 0, 2, 2, '2024-12-11 21:34:18', '2024-12-13 22:34:57', 0, '012-2-2024'),
 (13, '3', '3', 50000, 300000, 2, NULL, '2024-12-12 22:03:13', '2024-12-12 22:03:13', 1, '013-3-2024'),
 (14, '3', '3', 25000, 275000, 2, NULL, '2024-12-12 22:04:28', '2024-12-12 22:04:28', 1, '014-3-2024'),
-(15, '1', '4', 25000, 15000, 1, NULL, '2024-12-15 10:09:43', '2024-12-15 10:09:43', 1, '015-1-2024'),
-(16, '1', '4', 10000, 5000, 1, NULL, '2024-12-15 10:10:20', '2024-12-15 10:10:20', 1, '016-1-2024'),
-(17, '1', '4', 5000, 0, 1, NULL, '2024-12-15 10:10:48', '2024-12-15 10:10:48', 0, '017-1-2024');
+(15, '3', '4', 25000, 15000, 1, 8, '2024-12-15 10:09:43', '2024-12-15 19:21:51', 1, '015-1-2024'),
+(16, '3', '4', 10000, 5000, 1, 8, '2024-12-15 10:10:20', '2024-12-15 19:21:51', 1, '016-1-2024'),
+(17, '3', '4', 5000, 0, 1, 8, '2024-12-15 10:10:48', '2024-12-15 19:21:51', 0, '017-1-2024'),
+(18, '3', '3', 75000, 200000, 8, NULL, '2024-12-15 19:22:49', '2024-12-15 19:22:49', 1, '018-3-2024'),
+(19, '3', '3', 200000, 0, 8, NULL, '2024-12-15 19:26:26', '2024-12-15 19:26:26', 0, '019-3-2024');
 
 -- --------------------------------------------------------
 
@@ -283,25 +324,29 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `for`, `created_at`, `updated_at`) VALUES
-(1, 'Creer Inscrit', 'inscription', '2024-12-11 17:39:35', '2024-12-11 17:39:35'),
+(1, 'Creer-Inscrit', 'inscription', '2024-12-11 17:39:35', '2024-12-19 13:58:14'),
 (2, 'Liste Inscrit', 'inscription', '2024-12-11 17:41:23', '2024-12-11 17:41:23'),
-(3, 'Creer Paiement', 'inscription', '2024-12-11 17:41:45', '2024-12-11 17:41:45'),
-(4, 'Liste Paiement', 'inscription', '2024-12-11 17:41:55', '2024-12-11 17:41:55'),
-(5, 'Creer Utilisateur', 'administration', '2024-12-11 17:42:13', '2024-12-11 17:42:13'),
+(3, 'Creer-Paiement', 'inscription', '2024-12-11 17:41:45', '2024-12-19 13:57:42'),
+(4, 'Liste-Paiement', 'inscription', '2024-12-11 17:41:55', '2024-12-19 13:57:56'),
+(5, 'Creer-Utilisateur', 'administration', '2024-12-11 17:42:13', '2024-12-19 13:52:59'),
 (6, 'Liste Utilisateur', 'administration', '2024-12-11 17:42:24', '2024-12-11 17:42:24'),
 (7, 'Modifier Utilisateur', 'administration', '2024-12-11 17:42:37', '2024-12-11 17:42:37'),
 (8, 'Supprimer Utilisateur', 'administration', '2024-12-11 17:42:50', '2024-12-11 17:42:50'),
 (9, 'Creer Role', 'administration', '2024-12-11 17:43:02', '2024-12-11 17:43:02'),
 (10, 'Creer Permission', 'administration', '2024-12-11 17:43:14', '2024-12-11 17:43:14'),
 (11, 'Dashboard', 'inscription', '2024-12-11 20:22:41', '2024-12-11 20:22:41'),
-(12, 'Editer Paiement', 'inscription', '2024-12-11 20:41:39', '2024-12-14 20:14:52');
+(12, 'Editer-Paiement', 'inscription', '2024-12-11 20:41:39', '2024-12-19 13:43:39'),
+(13, 'Essai', 'administration', '2024-12-15 19:19:44', '2024-12-15 19:19:58'),
+(14, 'Creer-Formation', 'inscription', '2024-12-19 14:07:03', '2024-12-19 14:52:37'),
+(15, 'Creer Formateur', 'inscription', '2024-12-19 14:51:46', '2024-12-19 14:51:46'),
+(16, 'Editer Formation', 'inscription', '2024-12-19 14:54:27', '2024-12-19 14:54:27');
 
 -- --------------------------------------------------------
 
@@ -337,7 +382,19 @@ INSERT INTO `permission_role` (`role_id`, `permission_id`) VALUES
 (3, 11),
 (3, 4),
 (3, 3),
-(3, 12);
+(3, 12),
+(4, 12),
+(4, 11),
+(4, 4),
+(4, 3),
+(4, 2),
+(4, 1),
+(3, 2),
+(1, 14),
+(1, 12),
+(1, 15),
+(1, 11),
+(1, 16);
 
 -- --------------------------------------------------------
 
@@ -375,7 +432,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `roles`
@@ -384,7 +441,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 INSERT INTO `roles` (`id`, `nom`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', '2024-12-11 17:44:38', '2024-12-11 17:44:38'),
 (2, 'Manager', '2024-12-11 20:21:15', '2024-12-11 20:21:15'),
-(3, 'Caisse', '2024-12-11 20:42:08', '2024-12-14 21:09:27');
+(3, 'Caisse', '2024-12-11 20:42:08', '2024-12-14 21:09:27'),
+(4, 'Essai Role', '2024-12-15 19:18:49', '2024-12-15 19:19:17');
 
 -- --------------------------------------------------------
 
@@ -403,10 +461,10 @@ CREATE TABLE IF NOT EXISTS `role_user` (
 --
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
-(7, 1),
-(7, 2),
+(9, 1),
 (7, 3),
-(1, 1);
+(1, 1),
+(8, 1);
 
 -- --------------------------------------------------------
 
@@ -432,8 +490,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Gx9gXBd6Mzsc1IiMDQUBMyYAOMfA34DkWmf2fKvV', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiM1pPMjN3NlBXemt2UGFtTkxySnE3WGUwN3B2TlEwWHZnZU1KRkVSNCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHhJc1hVdFg2TmtWbFJVNldJdjBZb3VnUVdqYndFTGEzbWdoQmZ1UDlqSFJDeGZlOVNJbDFtIjt9', 1734264704),
-('y7dEuJwfP3W52GUduJo75YdRFKeEiua6iiy84v55', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiQ3VRUXByZGlPMWd4MVZzSjA5aDE3bTZxanZ1azFVQUpYVG1OQ1RtNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHhJc1hVdFg2TmtWbFJVNldJdjBZb3VnUVdqYndFTGEzbWdoQmZ1UDlqSFJDeGZlOVNJbDFtIjt9', 1734271620);
+('jKDxGxhfU12BHMFEqLalmZZ2XHJxlWsKcepJ9ZFl', 9, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSUhDOTNYNnJyZmpCd3JYR2xjQTdOWFZua01YRkJaTjVLcVBHVXg0UCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mb3JtYXRpb24iO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo5O3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJFR4cnAzNjhmSFlhNFVNR2MweXRZQmVmY0N1TmZHT0RGYjFIUUwwVW5GLmZTNzh5U1RBa1RDIjt9', 1734869131);
 
 -- --------------------------------------------------------
 
@@ -459,7 +516,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `prenom` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -467,7 +524,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`, `prenom`) VALUES
 (1, 'BARRO', 'barro.rahim@gmail.com', NULL, '$2y$10$xIsXUtX6NkVlRU6WIv0YougQWjbwELa3mghBfuP9jHRCxfe9SIl1m', NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-06 11:16:13', '2024-12-14 19:53:42', 'Ibrahim'),
-(7, 'COMPAORE', 'elyse@gmail', NULL, '$2y$10$qx6EJO1XxNlJm.y0HThMGuv9qhJg7cA54kaekWYhA2fkEyrvUSvDC', NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-14 15:15:28', '2024-12-14 19:53:04', 'Elysé');
+(7, 'COMPAORE', 'elyse@gmail', NULL, '$2y$10$3RgC7FwXUkRwoe9ys/PuZe5l4YQfGGPkoSth7XQXQgZjl0UcYl14u', NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-14 15:15:28', '2024-12-19 13:55:48', 'Elysé'),
+(8, 'OUEDRAOGO', 'alys@gmail.com', NULL, '$2y$10$na.6.pnTS2TNj4QzajkF/e5n4rLIQkfdjX5sIA8PVnYAUJuQ9MX.K', NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-15 19:16:57', '2024-12-15 19:17:33', 'ALY'),
+(9, 'TONDE', 'tonde@gmail.com', NULL, '$2y$10$Txrp368fHYa4UMGc0ytYBefcCuNfGODFb1HQL0UnF.fS78ySTAkTC', NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-22 12:05:11', '2024-12-22 12:05:11', 'Adama');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

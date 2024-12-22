@@ -48,9 +48,15 @@ if (!function_exists('getlibelle')) {
             {
                 $value=DB::table('role_user')->where('user_id', $id)->first();
                 //dd($value);
+                if($value){
+                
                 $role=Role::where('id', $value->role_id)->first();
 
                 $libelle= $role->nom;
+                }
+                else{
+                    $libelle='Aucun';
+                }
                 return $libelle;
 
             }

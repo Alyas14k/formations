@@ -38,7 +38,9 @@ class PermissionController extends Controller
             'name' => $request ['nom'],
             'for' => $request ['module']
         ]);
-        return back()->with('success', 'Formation Enregistrée !');
+
+        session()->flash('message', "Permission Créée Avec Succès !");
+        return back();
     }
 
     /**

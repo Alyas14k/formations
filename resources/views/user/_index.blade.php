@@ -215,7 +215,7 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->prenom}}</td>
                                             <td>{{$user->email}}</td>                                    
-                                            <td>{{$user->email}}</td>
+                                            <td>{{getrole($user->id)}}</td>
 
                                             {{-- <td class="col-md-1">
                                                 <label class="switch switch-danger "><input type="checkbox" onclick="idstatus({{ $user->id }})"

@@ -6,10 +6,11 @@
             <h4>Liste des formation</h2>
             <hr class="sub-header-separator">
         </div>
-       
+        @can('permission', 'Creer-Formation')
                 <div>
                         <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#addformation" data-bs-whatever=""> <i class="fa fa-plus"></i> formation</button>                        
                 </div>
+                @endcan
                 
 </div>                       
 <table id="example" class="table table-striped">
@@ -44,9 +45,10 @@
                                     <td>{{ $formation->lieu}}</td>
                                     <td>{{ $formation->place}}</td>
                                     <td>
+                                    @can('permission', 'Editer Formation')
                                         <!-- <a href="#" class="btn btn-outline-success" title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
                                     <a href="{{route('formation.edit', $formation->id)}}" class="btn btn-outline-danger"  title="Modifier"> <i class="fa fa-pen"></i></a>
-
+                                    @endcan
                                 </td>
                                                        
                                 </tr>

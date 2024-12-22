@@ -6,10 +6,11 @@
             <h4>Liste des Inscrits</h2>
             <hr class="sub-header-separator">
         </div>
-       
+                @can('permission', 'Creer-Inscrit')
                 <div>
                         <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#addinscrit" data-bs-whatever=""> <i class="fa fa-plus"></i> Inscrit</button>                        
                 </div>
+                @endcan
                 
 </div>                       
 <table id="example" class="table table-striped">
@@ -55,10 +56,14 @@
                                              
                                         Payer</button> -->
                                         @else
+                                        @can('permission', 'Editer-Paiement')
                                         <a href="{{route('payer.recu', $inscrit->id)}}" class="btn btn-outline-success" title="Afficher les détais">Reçu</a>
+                                        @endcan
                                         @endif
+                                        @can('permission', 'Creer-Inscrit')
                                         <!-- <a href="" class="btn btn-outline-success"  title="Afficher les détais"> <i class="fa fa-eye"></i></a> -->
                                         <a href="{{route('inscrit.edit', $inscrit->id)}}" class="btn btn-outline-danger"  title="Afficher les détais"> <i class="fa fa-pen"></i></a>
+                                        @endcan
                                     </td>                    
                                 </tr>
                                 @endforeach
@@ -87,7 +92,7 @@
       </div>
       <form action="{{route('admin.store')}}" enctype="multipart/form-data" method="POST">
         @csrf
-        <div class="modal-body">        
+        <div class="modal-body">
                 <div class="row g-4">                    
                         <div class="col-md-6">                        
                             <div class="mb-3">

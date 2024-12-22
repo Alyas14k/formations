@@ -19,9 +19,12 @@
                     <a href="{{route('demande.index')}}" class="nav-item nav-link {{ Request::routeIs('demande.index') ? 'active' : '' }}"><i class="fas fa-user-plus me-2"></i>Demandes</a>
                     <a href="{{route('formation.index')}}" class="nav-item nav-link {{ Request::routeIs('formation.index') ? 'active' : '' }}"><i class="fas fa-graduation-cap me-2"></i>Formations</a>
                     <a href="{{route('formateur.index')}}" class="nav-item nav-link {{ Request::routeIs('formateur.index') ? 'active' : '' }}"><i class="fas fa-users me-2"></i>Formateurs</a>
+                    @can('permission', 'Editer-Paiement')
                     <a href="{{route('paiement.index')}}" class="nav-item nav-link {{ Request::routeIs('paiement.index') ? 'active' : '' }}"><i class="fas fa-file-invoice-dollar me-2"></i>Paiements</a>
+                    @endcan
                     <!-- <a href="" class="nav-item nav-link {{ Request::routeIs('requete.index') ? 'active' : '' }}"><i class="fas fa-user-tie me-2"></i>Requetes</a> -->
                     <!-- <a href="#" class="nav-item nav-link {{ Request::routeIs('employe.index') ? 'active' : '' }}"><i class="fas fa-user-tie me-2"></i>Employe</a> -->
+                    @can('permission', 'Creer-Utilisateur')
                     <div class="nav-item dropdown admin" id="menu-admin">
                         <a href="#" class="nav-link dropdown-toggle" id="menu-admin" data-bs-toggle="dropdown"><i class="fa fa-cogs me-2"></i>Administration</a>
                         <div class="dropdown-menu subadmin bg-transparent border-0">
@@ -32,6 +35,7 @@
                             <a href="{{route('valeur.index')}}" id="link-valeur" class="dropdown-item {{ Request::routeIs('valeur.index') ? 'active' : '' }}">Valeurs</a>                             -->
                         </div>
                     </div>
+                    @endcan
                 </div>
             </nav>
         </div>

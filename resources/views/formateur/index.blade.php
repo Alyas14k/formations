@@ -6,10 +6,11 @@
             <h4>Liste des Formateurs</h2>
             <hr class="sub-header-separator">
         </div>
-       
+                @can('permission', 'Creer Formateur')
                 <div>
                         <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#addformateur" data-bs-whatever=""> <i class="fa fa-plus"></i> Formateur</button>                        
                 </div>
+                @endcan
                 
 </div>                       
 <table id="example" class="table table-striped">
